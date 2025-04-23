@@ -1,0 +1,193 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drohnensteuerung</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            width: 100%;
+            max-width: 500px;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+        .input-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+        .number {
+            width: 30px;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+        }
+        .custom-select {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+        .custom-select select {
+            appearance: none;
+            width: 100%;
+            font-size: 18px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background: white url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><polygon points="0,0 20,0 10,10" fill="%23333"/></svg>') no-repeat;
+            background-position: right 10px center;
+            background-size: 12px;
+            cursor: pointer;
+        }
+        .btn {
+            width: 100%;
+            padding: 12px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+        }
+        .btn-add {
+            background-color: #007bff;
+            color: white;
+            margin-bottom: 10px;
+        }
+        .btn-submit {
+            background-color: #343a40;
+            color: white;
+        }
+        .btn-remove {
+            background: none;
+            border: none;
+            color: #d9534f;
+            font-size: 20px;
+            cursor: pointer;
+        }
+        .fixed-instruction {
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+            padding: 10px;
+            border: 1px solid #ccc;
+            background: #e9ecef;
+            border-radius: 5px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Weg-Eingabe</h2>
+
+        <form id="entryForm" action="drohne.php" method="POST">
+
+            <div id="inputFields">
+                <!-- Dynamische Eingabefelder werden hier ÜBER der fixen Anweisung eingefügt -->
+            </div>
+
+            <div class="fixed-instruction">📸 Mache ein Foto vom Boden</div>
+
+            <button type="button" class="btn btn-add" onclick="addInput()">+ Anweisung hinzufügen</button>
+
+            <label for="groupNumber">Gruppennummer:</label>
+            <div class="custom-select">
+                <select name="groupNumber" required>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                </select>
+            </div>
+
+            <br><br>
+
+            <button type="submit" class="btn btn-submit">Starten</button>
+        </form>
+    </div>
+
+    <script>
+        document.title = "Drohnensteuerung";
+
+        function addInput() {
+            const container = document.createElement("div");
+            container.classList.add("input-container");
+
+            const number = document.createElement("div");
+            number.classList.add("number");
+
+            const selectMetersContainer = document.createElement("div");
+            selectMetersContainer.classList.add("custom-select");
+            const selectMeters = document.createElement("select");
+            selectMeters.name = "meters[]";
+            for (let i = 0.5; i <= 10; i += 0.5) {
+                const option = document.createElement("option");
+                option.value = i;
+                option.textContent = i + "m";
+                selectMeters.appendChild(option);
+            }
+            selectMetersContainer.appendChild(selectMeters);
+
+            const selectDirectionContainer = document.createElement("div");
+            selectDirectionContainer.classList.add("custom-select");
+            const selectDirection = document.createElement("select");
+            selectDirection.name = "direction[]";
+            ["rechts", "links", "oben", "unten"].forEach(dir => {
+                const option = document.createElement("option");
+                option.value = dir;
+                option.textContent = dir;
+                selectDirection.appendChild(option);
+            });
+            selectDirectionContainer.appendChild(selectDirection);
+
+            const deleteButton = document.createElement("button");
+            deleteButton.textContent = "✖";
+            deleteButton.classList.add("btn-remove");
+            deleteButton.onclick = () => {
+                container.remove();
+                updateNumbers();
+            };
+
+            container.appendChild(number);
+            container.appendChild(selectMetersContainer);
+            container.appendChild(selectDirectionContainer);
+            container.appendChild(deleteButton);
+
+            document.getElementById("inputFields").insertBefore(container, document.getElementById("inputFields").firstChild);
+            updateNumbers();
+        }
+
+        function updateNumbers() {
+            const items = document.querySelectorAll(".input-container .number");
+            items.forEach((num, index) => {
+                num.textContent = index + 1 + ".";
+            });
+        }
+    </script>
+
+</body>
+</html>
