@@ -65,7 +65,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         showError("❌ Die Drohne hatte nicht genug Akku (Strecke: " . round($totalDistance, 2) . " m) und ist abgestürzt.");
     }
 
-    // Hinweise für Gruppen
+
     $groupHints = [
         "1" => "Herr Tröger hat ein Alibi, er ist nicht der Täter.",
         "2" => "Der Täter unterrichtet nicht Wirtschaft.",
@@ -78,22 +78,22 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     $hint = $groupHints[$groupNumber] ?? "Hinweis nicht verfügbar.";
 
-    // Hinweis anzeigen:
+
     showHint("Hinweis für Gruppe $groupNumber", $hint);
 }
 
 
-// === Fehleranzeige im Style wie gewünscht ===
+
 function showError($msg) {
     renderPage("Flugfehler", $msg, true);
 }
 
-// === Hinweisanzeige bei korrektem Flug ===
+
 function showHint($title, $msg) {
     renderPage($title, $msg, false);
 }
 
-// === Gemeinsame Seitenausgabe ===
+
 function renderPage($title, $msg, $isError = false) {
     $buttonText = "Zurück zur Eingabe";
     $buttonLink = "index.html";
