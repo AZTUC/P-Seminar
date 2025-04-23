@@ -29,9 +29,10 @@ Ein moderner Browser (Chrome, Firefox, Edge etc.) wird ebenfalls benötigt.
 
 ```plaintext
 1. Download oder Klonen des Projekts:
-
+```
+```bash
    git clone https://github.com/DEINNUTZERNAME/drohnen-escape.git
-
+```
 2. Ablage im Webserver-Verzeichnis, z. B.:
 
    Bei XAMPP: C:/xampp/htdocs/drohne
