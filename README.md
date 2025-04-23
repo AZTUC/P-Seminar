@@ -6,9 +6,9 @@ Bei Erfolg erhalten die Gruppen individuelle Hinweise zur Lösung des Falls.
 
 ## Projektüberblick
 
-Die Drohne startet an einer festen Position und muss durch eine Reihe von Befehlen gesteuert werden.  
+Die Drohne startet an einer festen Position (9,9) und muss durch eine Reihe von Befehlen gesteuert werden.  
 Dabei dürfen keine Hindernisse berührt oder der Akku (maximale Distanz von 11m) überschritten werden.  
-Die Gruppe gibt über ein Webformular die Bewegungen in Metern und Richtungen ein. Das PHP-Skript prüft automatisch den Pfad und gibt entsprechende Rückmeldung.
+Die Gruppe gibt über ein Webformular die Bewegungen in 0.5 Metern und Richtungen ein. Das PHP-Skript prüft automatisch den Pfad und gibt entsprechende Rückmeldung.
 
 ## Dateien
 
@@ -18,7 +18,7 @@ Die Gruppe gibt über ein Webformular die Bewegungen in Metern und Richtungen ei
 
 ## Voraussetzungen
 
-Zum Ausführen des Projekts wird ein lokaler Webserver benötigt:
+Zum nachträglichen Ausführen des Projekts wird ein lokaler Webserver benötigt:
 
 - [XAMPP](https://www.apachefriends.org/index.html) (Windows/macOS/Linux)
 - oder [MAMP](https://www.mamp.info/) (besonders für macOS geeignet)
@@ -29,10 +29,9 @@ Ein moderner Browser (Chrome, Firefox, Edge etc.) wird ebenfalls benötigt.
 
 ```plaintext
 1. Download oder Klonen des Projekts:
-```
-```bash
+
    git clone https://github.com/DEINNUTZERNAME/drohnen-escape.git
-```
+
 2. Ablage im Webserver-Verzeichnis, z. B.:
 
    Bei XAMPP: C:/xampp/htdocs/drohne
