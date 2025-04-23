@@ -1,4 +1,4 @@
-# Drohnensteuerung – Escape Room Mini-Rätsel
+# Drohnensteuerung – Escape Room
 
 Dieses Projekt ist Teil eines P-Seminars im Fach Mathematik und stellt ein digitales Escape-Room-Rätsel für Schüler:innen der 6. Jahrgangsstufe dar.  
 Ziel ist es, eine Drohne durch ein Koordinatensystem zu steuern, Hindernissen auszuweichen und das Ziel zu erreichen.  
@@ -12,7 +12,8 @@ Die Gruppe gibt über ein Webformular die Bewegungen in 0.5 Metern und Richtunge
 
 ## Dateien
 
-- `index.html` – Eingabeseite im Browser (Startseite für die Schüler:innen)
+- `LICENSE` - Standard GNU Lizenz
+- `index.html` – Eingabeseite im Browser (Startseite für die Schüler)
 - `drohne.php` – PHP-Auswertung der Bewegungen, Zielkontrolle, Hindernisprüfung, Rückmeldung
 - `README.md` – Diese Anleitung
 
@@ -21,9 +22,9 @@ Die Gruppe gibt über ein Webformular die Bewegungen in 0.5 Metern und Richtunge
 Zum nachträglichen Ausführen des Projekts wird ein lokaler Webserver benötigt:
 
 - [XAMPP](https://www.apachefriends.org/index.html) (Windows/macOS/Linux)
-- oder [MAMP](https://www.mamp.info/) (besonders für macOS geeignet)
+- oder [MAMP](https://www.mamp.info/) (speziell für macOS)
 
-Ein moderner Browser (Chrome, Firefox, Edge etc.) wird ebenfalls benötigt.
+Ein moderner Browser (Chrome, Firefox, Edge, Safari...) wird ebenfalls benötigt.
 
 ## Installation
 
@@ -84,4 +85,6 @@ Alle Fehlermeldungen werden verständlich mit konkreten Koordinaten angezeigt.
 
 
 ## Lizenz
+
+Siehe LICENSE
 
