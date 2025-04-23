@@ -31,7 +31,7 @@ Ein moderner Browser (Chrome, Firefox, Edge, Safari...) wird ebenfalls benötigt
 ```plaintext
 1. Download oder Klonen des Projekts:
 
-   git clone https://github.com/DEINNUTZERNAME/drohnen-escape.git
+   git clone https://github.com/AZTUC/P-Seminar.git
 
 2. Ablage im Webserver-Verzeichnis, z. B.:
 
